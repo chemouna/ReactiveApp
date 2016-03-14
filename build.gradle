@@ -1,0 +1,33 @@
+subprojects {
+
+  buildscript {
+    repositories {
+      maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+      mavenCentral()
+      jcenter()
+      maven { url "https://jitpack.io" }
+      maven { url "https://plugins.gradle.org/m2/" }
+      maven { url "http://dl.bintray.com/tbruyelle/tbruyelle" }
+    }
+
+    dependencies {
+      classpath "com.android.tools.build:gradle:2.1.0-alpha1"
+      classpath "com.neenbedankt.gradle.plugins:android-apt:1.8"
+    }
+  }
+
+  repositories {
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    mavenCentral()
+    jcenter()
+    maven { url "https://jitpack.io" }
+    maven { url "https://plugins.gradle.org/m2/" }
+  }
+
+}
+
+subprojects {
+  task allDeps(type: DependencyReportTask) {}
+}
+
+
