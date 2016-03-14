@@ -20,4 +20,3 @@ android {
 }
 
 apply from: 'appdeps.gradle'
-apply from: 'tests.gradle'
