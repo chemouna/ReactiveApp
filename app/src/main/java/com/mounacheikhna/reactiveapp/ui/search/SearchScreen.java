@@ -1,6 +1,6 @@
 package com.mounacheikhna.reactiveapp.ui.search;
 
-import com.mounacheikhna.reactiveapp.ui.base.PresenterScreen;
+import com.mounacheikhna.trips.ui.base.PresenterScreen;
 
 /**
  * Created by cheikhnamouna on 3/14/16.

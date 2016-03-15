@@ -8,12 +8,12 @@ import android.content.Context;
  */
 public class ReactiveApp extends Application {
 
-  private AppComponent mComponent;
+  private AppComponent component;
 
   @Override public void onCreate() {
     super.onCreate();
-    mComponent = AppComponent.Initializer.init(this);
-    mComponent.injectApplication(this);
+    component = AppComponent.Initializer.init(this);
+    component.injectApplication(this);
   }
 
   public static ReactiveApp get(Context context) {
@@ -21,7 +21,7 @@ public class ReactiveApp extends Application {
   }
 
   public AppComponent getComponent() {
-    return mComponent;
+    return component;
   }
 
 
