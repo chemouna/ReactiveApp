@@ -1,6 +1,8 @@
 package com.mounacheikhna.reactiveapp.api;
 
 import com.mounacheikhna.reactiveapp.BuildConfig;
+import com.mounacheikhna.reactiveapp.annotation.ApiClient;
+import com.mounacheikhna.reactiveapp.annotation.NetworkInterceptors;
 import com.mounacheikhna.reactiveapp.api.geonames.GeonamesApi;
 import com.squareup.moshi.Moshi;
 import dagger.Provides;
@@ -25,9 +27,8 @@ public class ApiModule {
 
   @Provides @Singleton @ApiClient OkHttpClient provideApiClient(OkHttpClient client,
       @NetworkInterceptors List<Interceptor> networkInterceptors) {
-    OkHttpClient okClient = client.clone();
-    okClient.networkInterceptors().addAll(networkInterceptors);
-    return okClient;
+    client.networkInterceptors().addAll(networkInterceptors);
+    return client;
   }
 
   @Provides @Singleton OkHttpClient provideOkHttpClient() {
