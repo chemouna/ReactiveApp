@@ -12,7 +12,7 @@ android {
     versionCode 1
     versionName "1.0"
 
-    buildConfigField "String", "GEONAME_SERVICE_API", "\"http://api.geonames.org/search?\""
+    buildConfigField "String", "GEONAME_SERVICE_API", "\"http://api.geonames.org\""
 
   }
   buildTypes {
@@ -21,6 +21,12 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
 }
 
 apply from: 'appdeps.gradle'
