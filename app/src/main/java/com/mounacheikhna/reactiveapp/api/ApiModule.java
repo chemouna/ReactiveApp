@@ -1,7 +1,8 @@
 package com.mounacheikhna.reactiveapp.api;
 
-import com.mounacheikhna.trips.BuildConfig;
-import com.mounacheikhna.trips.annotation.ApiClient;
+import com.mounacheikhna.reactiveapp.BuildConfig;
+import com.mounacheikhna.reactiveapp.annotation.ApiClient;
+import com.mounacheikhna.reactiveapp.api.geonames.GeonamesApi;
 import com.squareup.moshi.Moshi;
 import dagger.Module;
 import dagger.Provides;
@@ -36,13 +37,14 @@ public class ApiModule {
       @ApiClient OkHttpClient apiClient, Moshi moshi) {
     return new Retrofit.Builder().client(apiClient)
         .baseUrl(HttpUrl.parse(BuildConfig.GEONAME_SERVICE_API))
-        .addConverterFactory(MoshiConverterFactory.create(moshi))
+        .addConverterFactory(MoshiConverterFactory.create(moshi).asLenient())
         .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
         .build();
   }
 
-  @Provides @Singleton GeonamesApi providesGeonamesApi(Retrofit retrofit) {
+  @Provides @Singleton GeonamesApi provideGeonamesApi(Retrofit retrofit) {
     return retrofit.create(GeonamesApi.class);
   }
 
 }
+
