@@ -1,5 +1,7 @@
 package com.mounacheikhna.reactiveapp;
 
+import com.mounacheikhna.reactiveapp.api.ApiModule;
+import com.mounacheikhna.reactiveapp.base.AppDep;
 import dagger.Component;
 import javax.inject.Singleton;
 
@@ -7,9 +9,9 @@ import javax.inject.Singleton;
  * Created by cheikhnamouna on 3/14/16.
  */
 @Singleton @Component(modules = {
-    AppModule.class
+    AppModule.class, ApiModule.class
 })
-public interface AppComponent {
+public interface AppComponent extends AppDep {
   void injectApplication(ReactiveApp app);
 
   final class Initializer {
