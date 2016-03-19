@@ -10,7 +10,6 @@ public class Geonames {
   int totalResultsCount;
   List<Geoname> geonames;
 
-
   /*
   sample :
       <geonames style="MEDIUM">

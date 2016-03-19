@@ -1,5 +1,6 @@
 package com.mounacheikhna.reactiveapp.api;
 
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.mounacheikhna.reactiveapp.BuildConfig;
 import com.mounacheikhna.reactiveapp.annotation.ApiClient;
 import com.mounacheikhna.reactiveapp.api.geonames.GeonamesApi;
@@ -30,7 +31,9 @@ public class ApiModule {
   }
 
   @Provides @Singleton OkHttpClient provideOkHttpClient() {
-    return new OkHttpClient();
+    return new OkHttpClient.Builder()
+            .addInterceptor(new StethoInterceptor())
+            .build();
   }
 
   @Provides @Singleton Retrofit provideRetrofit(
