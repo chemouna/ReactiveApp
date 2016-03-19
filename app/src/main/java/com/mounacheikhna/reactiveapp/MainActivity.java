@@ -9,11 +9,6 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-  /*
-    what is the mv thing i can do
-    -> a view with input & output where users can publish there ride and accept
-    -> a view where other users can book rides
-   */
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);

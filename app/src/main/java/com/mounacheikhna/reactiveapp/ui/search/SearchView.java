@@ -51,7 +51,6 @@ public class SearchView extends LinearLayout implements SearchScreen {
         .appComponent(ReactiveApp.get(getContext()).getComponent())
         .build()
         .inject(this);
-
   }
 
   protected void onAttachedToWindow() {
