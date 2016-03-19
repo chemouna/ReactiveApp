@@ -13,6 +13,7 @@ subprojects {
     dependencies {
       classpath "com.android.tools.build:gradle:2.1.0-alpha1"
       classpath "com.neenbedankt.gradle.plugins:android-apt:1.8"
+      classpath 'me.tatarka:gradle-retrolambda:3.2.5'
     }
   }
 
@@ -29,7 +30,7 @@ subprojects {
 allprojects {
   repositories {
     mavenCentral()
-    maven{
+    maven {
       url 'https://oss.sonatype.org/content/repositories/snapshots/'
     }
   }

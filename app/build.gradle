@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+
 
 android {
   compileSdkVersion 23
@@ -13,7 +15,6 @@ android {
     versionName "1.0"
 
     buildConfigField "String", "GEONAME_SERVICE_API", "\"http://api.geonames.org\""
-
   }
   buildTypes {
     release {
