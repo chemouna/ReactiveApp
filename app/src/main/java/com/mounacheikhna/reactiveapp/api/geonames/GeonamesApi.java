@@ -14,7 +14,7 @@ import rx.Observable;
  */
 public interface GeonamesApi {
 
-  @GET("/search") Observable<List<Geoname>> search(@Query("q") String geoname);
+  @GET("/search") Observable<List<Geoname>> search(@Query("q") String input);
 
 }
 

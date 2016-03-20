@@ -86,23 +86,20 @@ public class SearchView extends LinearLayout implements SearchScreen {
     subscriptions.add(subscription);
   }
 
-  protected void onDetachedFromWindow() {
-    super.onDetachedFromWindow();
-    this.subscriptions.unsubscribe();
-  }
-
-
   protected void onFinishInflate() {
     super.onFinishInflate();
     if (isInEditMode()) return;
   }
 
+  protected void onDetachedFromWindow() {
+    super.onDetachedFromWindow();
+    subscriptions.unsubscribe();
+  }
 
   @ScopeSingleton(SearchComponent.class)
   @dagger.Component(dependencies = AppComponent.class)
   public interface SearchComponent extends BaseComponent {
     void inject(SearchView searchView);
   }
-
 
 }

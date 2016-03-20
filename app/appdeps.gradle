@@ -30,5 +30,7 @@ dependencies {
   compile 'com.mounacheikhna:rxAndroidLog:0.2'
 
   compile "io.reactivex:rxjava-debug:1.0.2"
+  compile 'com.android.support:appcompat-v7:23.2.0'
+
 }
 

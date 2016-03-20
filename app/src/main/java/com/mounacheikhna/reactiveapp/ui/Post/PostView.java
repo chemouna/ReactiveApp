@@ -6,7 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import butterknife.ButterKnife;
+
+import com.mounacheikhna.reactiveapp.AppComponent;
 import com.mounacheikhna.reactiveapp.R;
+import com.mounacheikhna.reactiveapp.ReactiveApp;
+import com.mounacheikhna.reactiveapp.annotation.ScopeSingleton;
+import com.mounacheikhna.reactiveapp.base.BaseComponent;
+
+import javax.inject.Inject;
+
 import rx.subscriptions.CompositeSubscription;
 
 /**
@@ -14,7 +22,9 @@ import rx.subscriptions.CompositeSubscription;
  */
 public class PostView extends LinearLayout implements PostScreen {
 
-  private CompositeSubscription mSubscriptions;
+  @Inject PostPresenter postPresenter;
+
+  private CompositeSubscription subscriptions;
 
   public PostView(Context context, AttributeSet attrs) {
     super(context, attrs);
@@ -27,11 +37,34 @@ public class PostView extends LinearLayout implements PostScreen {
     setOrientation(VERTICAL);
     setClipToPadding(false);
     ButterKnife.bind(this, view);
-    mSubscriptions = new CompositeSubscription(); //TODO: add a way to auto handle subscriptions to not worry about it anymore
+
+    DaggerPostView_PostComponent.builder()
+            .appComponent(ReactiveApp.get(getContext()).getComponent())
+            .build()
+            .inject(this);
+  }
+
+  @Override
+  protected void onAttachedToWindow() {
+    super.onAttachedToWindow();
+    subscriptions = new CompositeSubscription();
   }
 
   @Override protected void onFinishInflate() {
     super.onFinishInflate();
     ButterKnife.bind(this);
   }
+
+  @Override
+  protected void onDetachedFromWindow() {
+    super.onDetachedFromWindow();
+    subscriptions.unsubscribe();
+  }
+
+  @ScopeSingleton(PostComponent.class)
+  @dagger.Component(dependencies = AppComponent.class)
+  public interface PostComponent extends BaseComponent {
+    void inject(PostView postView);
+  }
+
 }
