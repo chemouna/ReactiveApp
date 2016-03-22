@@ -9,3 +9,7 @@
 
 DoD
 .idea/
+
+google-services.json
+
+*.keystore
