@@ -11,5 +11,7 @@ DoD
 .idea/
 
 google-services.json
+*/google-services.json
+**/google-services.json
 
 *.keystore
