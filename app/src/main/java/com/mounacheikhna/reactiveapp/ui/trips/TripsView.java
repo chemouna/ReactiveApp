@@ -13,10 +13,10 @@ import com.mounacheikhna.reactiveapp.R;
 import com.mounacheikhna.reactiveapp.ReactiveApp;
 import com.mounacheikhna.reactiveapp.annotation.ScopeSingleton;
 import com.mounacheikhna.reactiveapp.base.BaseComponent;
-import com.mounacheikhna.reactiveapp.ui.search.DaggerSearchView_SearchComponent;
-import com.mounacheikhna.reactiveapp.ui.search.SearchScreen;
+import com.mounacheikhna.reactiveapp.data.TripsSource;
 import dagger.Component;
 import javax.inject.Inject;
+import rx.Observable;
 
 /**
  * Created by cheikhnamouna on 3/26/16.
@@ -40,7 +40,9 @@ public class TripsView extends LinearLayout implements TripsScreen {
         .inject(this);
 
     tripsRv.setLayoutManager(new LinearLayoutManager(context));
-    tripsRv.setAdapter(new TripsAdapter(context));
+    final TripAdapter adapter = new TripAdapter(context);
+    Observable.just(TripsSource.getTrips()).subscribe(adapter);
+    tripsRv.setAdapter(adapter);
   }
 
   @ScopeSingleton(TripsComponent.class)
