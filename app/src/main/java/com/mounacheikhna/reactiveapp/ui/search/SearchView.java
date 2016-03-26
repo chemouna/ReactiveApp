@@ -15,22 +15,13 @@ import com.mounacheikhna.reactiveapp.R;
 import com.mounacheikhna.reactiveapp.ReactiveApp;
 import com.mounacheikhna.reactiveapp.annotation.ScopeSingleton;
 import com.mounacheikhna.reactiveapp.api.geonames.model.Geoname;
-import com.mounacheikhna.reactiveapp.api.geonames.model.Geonames;
 import com.mounacheikhna.reactiveapp.base.BaseComponent;
-import com.mounacheikhna.rxandroidlog.RxLogging;
-
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import javax.inject.Inject;
-
-import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
-
-import static rx.schedulers.Schedulers.computation;
 
 /**
  * Created by cheikhnamouna on 3/14/16.
@@ -66,8 +57,8 @@ public class SearchView extends LinearLayout implements SearchScreen {
 
     final Subscription subscription = RxTextView.textChanges(departure)
         .skip(1)
-        .debounce(400, TimeUnit.MILLISECONDS, computation())
-        .lift(RxLogging.<CharSequence>logger().log())
+        //.debounce(400, TimeUnit.MILLISECONDS, computation())
+        //.lift(RxLogging.<CharSequence>logger().log())
         .flatMap(charSequence -> searchPresenter.searchPlace(charSequence.toString()))
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(new Subscriber<List<Geoname>>() {

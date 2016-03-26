@@ -9,7 +9,7 @@ android {
   buildToolsVersion "23.0.2"
 
   defaultConfig {
-    applicationId "com.mounacheikhna.trips"
+    applicationId "com.mounacheikhna.reactiveapp"
     minSdkVersion 15
     targetSdkVersion 23
     versionCode 1
