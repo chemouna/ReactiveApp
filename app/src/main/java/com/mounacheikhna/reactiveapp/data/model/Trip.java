@@ -6,6 +6,7 @@ package com.mounacheikhna.reactiveapp.data.model;
 public class Trip {
 
   public String username;
+  public String image;
   public String departureCity;
   public String departureDate;
   public String arrivalCity;
