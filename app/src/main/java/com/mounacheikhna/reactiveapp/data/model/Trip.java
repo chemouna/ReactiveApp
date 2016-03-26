@@ -5,11 +5,11 @@ package com.mounacheikhna.reactiveapp.data.model;
  */
 public class Trip {
 
-  String username;
-  String departureCity;
-  String departureDate;
-  String arrivalCity;
-  String arrivalDate;
+  public String username;
+  public String departureCity;
+  public String departureDate;
+  public String arrivalCity;
+  public String arrivalDate;
 
   public Trip(String username, String departureCity, String departureDate, String arrivalCity,
       String arrivalDate) {

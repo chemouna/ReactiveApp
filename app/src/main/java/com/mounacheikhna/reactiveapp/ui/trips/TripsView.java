@@ -1,9 +1,12 @@
 package com.mounacheikhna.reactiveapp.ui.trips;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.mounacheikhna.reactiveapp.AppComponent;
 import com.mounacheikhna.reactiveapp.R;
@@ -21,6 +24,7 @@ import javax.inject.Inject;
 public class TripsView extends LinearLayout implements TripsScreen {
 
   @Inject TripsPresenter tripsPresenter;
+  @Bind(R.id.rv_trips) RecyclerView tripsRv;
 
   public TripsView(Context context) {
     super(context);
@@ -28,12 +32,15 @@ public class TripsView extends LinearLayout implements TripsScreen {
   }
 
   private void init(Context context) {
-    final View view = LayoutInflater.from(context).inflate(R.layout.search, this, true);
+    final View view = LayoutInflater.from(context).inflate(R.layout.trips, this, true);
     ButterKnife.bind(this, view);
     DaggerTripsView_TripsComponent.builder()
         .appComponent(ReactiveApp.get(getContext()).getComponent())
         .build()
         .inject(this);
+
+    tripsRv.setLayoutManager(new LinearLayoutManager(context));
+    tripsRv.setAdapter(new TripsAdapter(context));
   }
 
   @ScopeSingleton(TripsComponent.class)

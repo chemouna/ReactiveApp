@@ -14,8 +14,8 @@
     tools:context="com.mounacheikhna.reactiveapp.MainActivity">
 
 
-  <com.mounacheikhna.reactiveapp.ui.search.SearchView
-      android:id="@+id/search_view"
+  <com.mounacheikhna.reactiveapp.ui.trips.TripsView
+      android:id="@+id/trips_view"
       android:layout_width="match_parent"
       android:layout_height="match_parent"/>
 
