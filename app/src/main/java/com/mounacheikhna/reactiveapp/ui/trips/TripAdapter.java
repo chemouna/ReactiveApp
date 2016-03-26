@@ -1,6 +1,5 @@
 package com.mounacheikhna.reactiveapp.ui.trips;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,15 +15,10 @@ import rx.functions.Action1;
 public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder>
     implements Action1<List<Trip>> {
 
-  private final LayoutInflater inflater;
   private List<Trip> trips;
 
-  public TripAdapter(Context context) {
-    inflater = LayoutInflater.from(context);
-  }
-
   @Override public TripViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    View v = inflater.inflate(R.layout.trip_item, parent, false);
+    View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.trip_item, parent, false);
     return new TripViewHolder((TripItemView) v);
   }
 
@@ -38,6 +32,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
 
   @Override public void call(List<Trip> trips) {
     this.trips = trips;
+    notifyDataSetChanged();
   }
 
   class TripViewHolder extends RecyclerView.ViewHolder {

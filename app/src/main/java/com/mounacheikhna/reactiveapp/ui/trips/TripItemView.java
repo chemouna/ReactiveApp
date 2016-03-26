@@ -17,6 +17,10 @@ public class TripItemView extends LinearLayout {
   @Bind(R.id.trip_from_to) TextView fromToTv;
   @Bind(R.id.trip_dates) TextView datesTv;
 
+  public TripItemView(Context context) {
+    super(context);
+  }
+
   public TripItemView(Context context, AttributeSet attrs) {
     super(context, attrs);
   }

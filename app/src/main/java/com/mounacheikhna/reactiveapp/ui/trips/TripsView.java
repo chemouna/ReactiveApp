@@ -1,6 +1,8 @@
 package com.mounacheikhna.reactiveapp.ui.trips;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
@@ -30,12 +32,24 @@ public class TripsView extends LinearLayout implements TripsScreen {
     init(context);
   }
 
-  public TripsView(Context context, AttributeSet attrs, TripsPresenter tripsPresenter) {
+  public TripsView(Context context, AttributeSet attrs) {
     super(context, attrs);
     init(context);
   }
 
+  public TripsView(Context context, AttributeSet attrs, int defStyleAttr) {
+    super(context, attrs, defStyleAttr);
+    init(context);
+  }
+
+  @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+  public TripsView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    super(context, attrs, defStyleAttr, defStyleRes);
+    init(context);
+  }
+
   private void init(Context context) {
+    if (isInEditMode()) return;
     final View view = LayoutInflater.from(context).inflate(R.layout.trips, this, true);
     ButterKnife.bind(this, view);
     DaggerTripsView_TripsComponent.builder()
@@ -44,7 +58,7 @@ public class TripsView extends LinearLayout implements TripsScreen {
         .inject(this);
 
     tripsRv.setLayoutManager(new LinearLayoutManager(context));
-    final TripAdapter adapter = new TripAdapter(context);
+    final TripAdapter adapter = new TripAdapter();
     tripsPresenter.getTrips().subscribe(adapter);
     tripsRv.setAdapter(adapter);
   }
