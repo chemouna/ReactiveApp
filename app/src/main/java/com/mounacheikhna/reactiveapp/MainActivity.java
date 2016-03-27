@@ -1,15 +1,16 @@
 package com.mounacheikhna.reactiveapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.mounacheikhna.reactiveapp.ui.Post.PostActivity;
 import com.mounacheikhna.reactiveapp.ui.trips.TripsView;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,8 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
   @OnClick(R.id.post)
   public void post() {
-    contentContainer.removeView(tripsView);
-    contentContainer.addView(LayoutInflater.from(this).inflate(R.layout.post, contentContainer));
+    startActivity(new Intent(this, PostActivity.class));
   }
 
 }
