@@ -38,7 +38,8 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
   }
 
   @Override public void call(List<Trip> trips) {
-    this.trips = trips;
+    this.trips.clear();
+    this.trips.addAll(trips);
     notifyDataSetChanged();
   }
 

@@ -17,10 +17,15 @@ import com.mounacheikhna.reactiveapp.R;
 import com.mounacheikhna.reactiveapp.ReactiveApp;
 import com.mounacheikhna.reactiveapp.annotation.ScopeSingleton;
 import com.mounacheikhna.reactiveapp.base.BaseComponent;
+import com.mounacheikhna.reactiveapp.data.model.Trip;
 import com.mounacheikhna.reactiveapp.ui.recyclerview.OffsetDecoration;
 import com.squareup.picasso.Picasso;
 import dagger.Component;
+import java.util.List;
 import javax.inject.Inject;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by cheikhnamouna on 3/26/16.
@@ -32,6 +37,7 @@ public class TripsView extends LinearLayout implements TripsScreen {
 
   @Bind(R.id.rv_trips) RecyclerView tripsRv;
   @BindDimen(R.dimen.spacing_normal) int spacingNormal;
+  private TripAdapter adapter;
 
   public TripsView(Context context) {
     super(context);
@@ -66,9 +72,19 @@ public class TripsView extends LinearLayout implements TripsScreen {
     tripsRv.setLayoutManager(new LinearLayoutManager(context));
     tripsRv.setClipToPadding(false);
     tripsRv.addItemDecoration(new OffsetDecoration(spacingNormal));
-    final TripAdapter adapter = new TripAdapter(picasso);
-    tripsPresenter.getTrips(getContext()).subscribe(adapter);
+    adapter = new TripAdapter(picasso);
     tripsRv.setAdapter(adapter);
+  }
+
+  public void displayDefault() {
+    tripsPresenter.getTrips(getContext()).subscribe(adapter);
+  }
+
+  public void display(Observable<List<Trip>> tripsObservable) {
+    tripsObservable
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(adapter);
   }
 
   @ScopeSingleton(TripsComponent.class)

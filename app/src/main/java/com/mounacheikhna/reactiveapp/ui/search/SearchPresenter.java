@@ -3,11 +3,10 @@ package com.mounacheikhna.reactiveapp.ui.search;
 import com.mounacheikhna.reactiveapp.annotation.ScopeSingleton;
 import com.mounacheikhna.reactiveapp.api.geonames.GeonamesApi;
 import com.mounacheikhna.reactiveapp.api.geonames.model.Geoname;
-import com.mounacheikhna.reactiveapp.api.geonames.model.Geonames;
+import com.mounacheikhna.reactiveapp.data.TripsSource;
+import com.mounacheikhna.reactiveapp.data.model.Trip;
 import com.mounacheikhna.reactiveapp.ui.base.BasePresenter;
-
 import java.util.List;
-
 import javax.inject.Inject;
 import rx.Observable;
 
@@ -26,6 +25,10 @@ public class SearchPresenter extends BasePresenter<SearchScreen> {
 
   public Observable<List<Geoname>> searchPlace(String query) {
     return api.search(query);
+  }
+
+  public Observable<List<Trip>> searchRides(String departure, String arrival) {
+    return Observable.just(TripsSource.getTrips());
   }
 }
 

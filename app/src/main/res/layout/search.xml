@@ -14,5 +14,15 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"/>
 
+  <Button
+      android:id="@+id/search_rides"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/search_rides"/>
+
+  <com.mounacheikhna.reactiveapp.ui.trips.TripsView
+      android:id="@+id/trips_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
 
 </LinearLayout>

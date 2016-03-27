@@ -2,25 +2,23 @@ package com.mounacheikhna.reactiveapp.ui.search;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import com.jakewharton.rxbinding.widget.RxTextView;
 import com.mounacheikhna.reactiveapp.AppComponent;
 import com.mounacheikhna.reactiveapp.R;
 import com.mounacheikhna.reactiveapp.ReactiveApp;
 import com.mounacheikhna.reactiveapp.annotation.ScopeSingleton;
-import com.mounacheikhna.reactiveapp.api.geonames.model.Geoname;
 import com.mounacheikhna.reactiveapp.base.BaseComponent;
-import java.util.List;
+import com.mounacheikhna.reactiveapp.ui.trips.TripsView;
 import javax.inject.Inject;
-import rx.Subscriber;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
+import rx.Observable;
 import rx.subscriptions.CompositeSubscription;
 
 /**
@@ -30,6 +28,8 @@ public class SearchView extends LinearLayout implements SearchScreen {
 
   @Bind(R.id.departure) EditText departure;
   @Bind(R.id.arrival) EditText arrival;
+  @Bind(R.id.search_rides) Button searchButton;
+  @Bind(R.id.trips_view) TripsView tripsView;
 
   @Inject SearchPresenter searchPresenter;
 
@@ -55,7 +55,7 @@ public class SearchView extends LinearLayout implements SearchScreen {
     super.onAttachedToWindow();
     this.subscriptions = new CompositeSubscription();
 
-    final Subscription subscription = RxTextView.textChanges(departure)
+    /*final Subscription subscription = RxTextView.textChanges(departure)
         .skip(1)
         //.debounce(400, TimeUnit.MILLISECONDS, computation())
         //.lift(RxLogging.<CharSequence>logger().log())
@@ -74,7 +74,18 @@ public class SearchView extends LinearLayout implements SearchScreen {
             Log.i("TEST", " onNext " + geonames);
           }
         });
-    subscriptions.add(subscription);
+    subscriptions.add(subscription);*/
+
+    final Observable<CharSequence> departureObservable = RxTextView.textChanges(departure).skip(1);
+    final Observable<CharSequence> arrivalObservable = RxTextView.textChanges(arrival).skip(1);
+    /*final Observable<Void> clicks = RxView.clicks(searchButton);
+    Observable.combineLatest(departureObservable, arrivalObservable, clicks)*/
+
+  }
+
+  @OnClick(R.id.search_rides)
+  public void search() {
+    tripsView.display(searchPresenter.searchRides(departure.getText().toString(), arrival.getText().toString()));
   }
 
   protected void onFinishInflate() {

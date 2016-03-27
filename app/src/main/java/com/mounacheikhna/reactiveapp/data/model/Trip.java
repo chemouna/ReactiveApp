@@ -11,13 +11,16 @@ public class Trip {
   public String departureDate;
   public String arrivalCity;
   public String arrivalDate;
+  public String price;
 
   public Trip(String username, String departureCity, String departureDate, String arrivalCity,
-      String arrivalDate) {
+      String arrivalDate, String price) {
     this.username = username;
     this.departureCity = departureCity;
     this.departureDate = departureDate;
     this.arrivalCity = arrivalCity;
     this.arrivalDate = arrivalDate;
+    this.price = price;
   }
+
 }
