@@ -3,15 +3,19 @@ package com.mounacheikhna.reactiveapp;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import com.mounacheikhna.reactiveapp.ui.trips.TripsView;
 
 public class MainActivity extends AppCompatActivity {
 
   @Bind(R.id.trips_view) TripsView tripsView;
+  @Bind(R.id.content) RelativeLayout contentContainer;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -39,5 +43,10 @@ public class MainActivity extends AppCompatActivity {
     return super.onOptionsItemSelected(item);
   }
 
+  @OnClick(R.id.post)
+  public void post() {
+    contentContainer.removeView(tripsView);
+    contentContainer.addView(LayoutInflater.from(this).inflate(R.layout.post, contentContainer));
+  }
 
 }
