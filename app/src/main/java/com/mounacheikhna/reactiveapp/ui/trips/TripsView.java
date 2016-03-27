@@ -10,13 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import butterknife.Bind;
+import butterknife.BindDimen;
 import butterknife.ButterKnife;
 import com.mounacheikhna.reactiveapp.AppComponent;
 import com.mounacheikhna.reactiveapp.R;
 import com.mounacheikhna.reactiveapp.ReactiveApp;
 import com.mounacheikhna.reactiveapp.annotation.ScopeSingleton;
 import com.mounacheikhna.reactiveapp.base.BaseComponent;
-import com.mounacheikhna.reactiveapp.ui.recyclerview.DividerItemDecoration;
+import com.mounacheikhna.reactiveapp.ui.recyclerview.OffsetDecoration;
 import dagger.Component;
 import javax.inject.Inject;
 
@@ -27,6 +28,7 @@ public class TripsView extends LinearLayout implements TripsScreen {
 
   @Inject TripsPresenter tripsPresenter;
   @Bind(R.id.rv_trips) RecyclerView tripsRv;
+  @BindDimen(R.dimen.spacing_normal) int spacingNormal;
 
   public TripsView(Context context) {
     super(context);
@@ -60,7 +62,7 @@ public class TripsView extends LinearLayout implements TripsScreen {
 
     tripsRv.setLayoutManager(new LinearLayoutManager(context));
     tripsRv.setClipToPadding(false);
-    tripsRv.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL_LIST));
+    tripsRv.addItemDecoration(new OffsetDecoration(spacingNormal));
     final TripAdapter adapter = new TripAdapter();
     tripsPresenter.getTrips().subscribe(adapter);
     tripsRv.setAdapter(adapter);
