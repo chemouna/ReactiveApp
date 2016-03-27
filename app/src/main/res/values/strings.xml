@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">ReactiveApp</string>
+  <string name="app_name">Rides</string>
   <string name="action_settings">Settings</string>
   <string name="everyday_trip">Everyday</string>
   <string name="women_only">Women Only</string>

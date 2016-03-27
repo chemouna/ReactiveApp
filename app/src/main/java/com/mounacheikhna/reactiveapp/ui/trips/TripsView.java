@@ -16,6 +16,7 @@ import com.mounacheikhna.reactiveapp.R;
 import com.mounacheikhna.reactiveapp.ReactiveApp;
 import com.mounacheikhna.reactiveapp.annotation.ScopeSingleton;
 import com.mounacheikhna.reactiveapp.base.BaseComponent;
+import com.mounacheikhna.reactiveapp.ui.recyclerview.DividerItemDecoration;
 import dagger.Component;
 import javax.inject.Inject;
 
@@ -58,6 +59,8 @@ public class TripsView extends LinearLayout implements TripsScreen {
         .inject(this);
 
     tripsRv.setLayoutManager(new LinearLayoutManager(context));
+    tripsRv.setClipToPadding(false);
+    tripsRv.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL_LIST));
     final TripAdapter adapter = new TripAdapter();
     tripsPresenter.getTrips().subscribe(adapter);
     tripsRv.setAdapter(adapter);

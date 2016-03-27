@@ -26,7 +26,7 @@ public class TripItemView extends LinearLayout {
   }
 
   public void bind(Trip trip) {
-    fromToTv.setText(trip.departureCity + " ->"+ trip.arrivalCity);
+    fromToTv.setText(trip.departureCity + " -> "+ trip.arrivalCity);
     datesTv.setText(trip.departureDate + " -> "+ trip.arrivalDate);
   }
 

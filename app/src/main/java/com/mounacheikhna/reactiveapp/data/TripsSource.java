@@ -12,6 +12,8 @@ public class TripsSource {
   public static List<Trip> getTrips() {
     List<Trip> trips = new ArrayList<>();
     trips.add(new Trip("Leyla", "Rabat", "20/05/2016", "Mohamedia", "21/05/2016"));
+    trips.add(new Trip("Ahmed", "Nouakchott", "22/05/2016", "Nouadhibou", "23/05/2016"));
+    trips.add(new Trip("Fatma", "Rabat", "23/05/2016", "Casablanca", "24/05/2016"));
     return trips;
   }
 }
