@@ -1,4 +1,4 @@
-package com.mounacheikhna.reactiveapp.ui.profil;
+package com.mounacheikhna.reactiveapp.ui.profile;
 
 import android.app.Activity;
 

@@ -43,5 +43,8 @@ dependencies {
 
   compile 'com.mikepenz:materialdrawer:5.1.6@aar'
 
+  compile 'com.github.techery:ProperRatingBar:v0.0.3'
+
+
 }
 

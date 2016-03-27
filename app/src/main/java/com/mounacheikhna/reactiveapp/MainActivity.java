@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         .withHeaderBackground(R.drawable.header)
         .addProfiles(
             new ProfileDrawerItem().withName("Leila").withEmail("example@gmail.com")
-                .withIcon(ContextCompat.getDrawable(this, R.drawable.profile))
+                .withIcon(ContextCompat.getDrawable(this, R.drawable.women))
         )
         .withOnAccountHeaderListener((view, profile, currentProfile) -> false)
         .build();

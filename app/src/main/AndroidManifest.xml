@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mounacheikhna.reactiveapp">
 
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
   <application
       android:name=".ReactiveApp"
@@ -23,9 +23,30 @@
       </intent-filter>
     </activity>
 
-    <activity android:name=".ui.Post.PostActivity"/>
-    <activity android:name=".ui.profil.ProfileActivity"/>
-    <activity android:name=".ui.search.SearchActivity"/>
+    <activity android:name=".ui.Post.PostActivity"
+        android:parentActivityName="com.mounacheikhna.reactiveapp.MainActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.mounacheikhna.reactiveapp.MainActivity"/>
+    </activity>
+
+    <activity android:name=".ui.profile.ProfileActivity"
+        android:parentActivityName="com.mounacheikhna.reactiveapp.MainActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.mounacheikhna.reactiveapp.MainActivity"/>
+    </activity>
+
+    <activity android:name=".ui.search.SearchActivity"
+        android:parentActivityName="com.mounacheikhna.reactiveapp.MainActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.mounacheikhna.reactiveapp.MainActivity"/>
+    </activity>
+
   </application>
 
 </manifest>

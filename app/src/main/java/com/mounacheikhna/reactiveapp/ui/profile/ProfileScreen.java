@@ -1,4 +1,4 @@
-package com.mounacheikhna.reactiveapp.ui.profil;
+package com.mounacheikhna.reactiveapp.ui.profile;
 
 import com.mounacheikhna.reactiveapp.ui.base.PresenterScreen;
 
