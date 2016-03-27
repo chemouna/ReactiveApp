@@ -1,10 +1,13 @@
 package com.mounacheikhna.reactiveapp.api;
 
+import android.content.Context;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.mounacheikhna.reactiveapp.BuildConfig;
 import com.mounacheikhna.reactiveapp.annotation.ApiClient;
+import com.mounacheikhna.reactiveapp.annotation.ApplicationContext;
 import com.mounacheikhna.reactiveapp.api.geonames.GeonamesApi;
 import com.squareup.moshi.Moshi;
+import com.squareup.picasso.Picasso;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -47,6 +50,10 @@ public class ApiModule {
 
   @Provides @Singleton GeonamesApi provideGeonamesApi(Retrofit retrofit) {
     return retrofit.create(GeonamesApi.class);
+  }
+
+  @Provides @Singleton Picasso providePicasso(@ApplicationContext Context context) {
+    return new Picasso.Builder(context).build();
   }
 
 }

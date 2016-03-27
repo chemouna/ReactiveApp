@@ -39,8 +39,7 @@
           android:layout_below="@id/trip_from_to"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          style="@style/Widget.CardSubtitle"
-          tools:text="@string/default_author"/>
+          style="@style/Widget.CardSubtitle"/>
 
     </RelativeLayout>
 

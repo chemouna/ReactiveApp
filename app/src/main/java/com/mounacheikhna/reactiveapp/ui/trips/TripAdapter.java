@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.mounacheikhna.reactiveapp.R;
 import com.mounacheikhna.reactiveapp.data.model.Trip;
+import com.squareup.picasso.Picasso;
 import java.util.List;
 import rx.functions.Action1;
 
@@ -16,6 +17,11 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
     implements Action1<List<Trip>> {
 
   private List<Trip> trips;
+  private Picasso picasso;
+
+  public TripAdapter(Picasso picasso) {
+    this.picasso = picasso;
+  }
 
   @Override public TripViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.trip_item, parent, false);
@@ -23,7 +29,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
   }
 
   @Override public void onBindViewHolder(TripViewHolder holder, int position) {
-    holder.itemView.bind(trips.get(position));
+    holder.itemView.bind(trips.get(position), picasso);
   }
 
   @Override public int getItemCount() {

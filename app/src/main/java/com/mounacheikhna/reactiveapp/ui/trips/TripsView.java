@@ -18,6 +18,7 @@ import com.mounacheikhna.reactiveapp.ReactiveApp;
 import com.mounacheikhna.reactiveapp.annotation.ScopeSingleton;
 import com.mounacheikhna.reactiveapp.base.BaseComponent;
 import com.mounacheikhna.reactiveapp.ui.recyclerview.OffsetDecoration;
+import com.squareup.picasso.Picasso;
 import dagger.Component;
 import javax.inject.Inject;
 
@@ -27,6 +28,8 @@ import javax.inject.Inject;
 public class TripsView extends LinearLayout implements TripsScreen {
 
   @Inject TripsPresenter tripsPresenter;
+  @Inject Picasso picasso;
+
   @Bind(R.id.rv_trips) RecyclerView tripsRv;
   @BindDimen(R.dimen.spacing_normal) int spacingNormal;
 
@@ -63,8 +66,8 @@ public class TripsView extends LinearLayout implements TripsScreen {
     tripsRv.setLayoutManager(new LinearLayoutManager(context));
     tripsRv.setClipToPadding(false);
     tripsRv.addItemDecoration(new OffsetDecoration(spacingNormal));
-    final TripAdapter adapter = new TripAdapter();
-    tripsPresenter.getTrips().subscribe(adapter);
+    final TripAdapter adapter = new TripAdapter(picasso);
+    tripsPresenter.getTrips(getContext()).subscribe(adapter);
     tripsRv.setAdapter(adapter);
   }
 

@@ -14,6 +14,7 @@ public class TripsSource {
     trips.add(new Trip("Leyla", "Rabat", "20/05/2016", "Mohamedia", "21/05/2016"));
     trips.add(new Trip("Ahmed", "Nouakchott", "22/05/2016", "Nouadhibou", "23/05/2016"));
     trips.add(new Trip("Fatma", "Rabat", "23/05/2016", "Casablanca", "24/05/2016"));
+    trips.add(new Trip("Nada", "Tunis", "24/05/2016", "Sfax", "24/05/2016"));
     return trips;
   }
 }
