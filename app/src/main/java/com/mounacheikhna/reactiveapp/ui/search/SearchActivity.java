@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+
+import com.mounacheikhna.reactiveapp.R;
 import com.mounacheikhna.reactiveapp.ui.trips.TripsView;
 
 /**
