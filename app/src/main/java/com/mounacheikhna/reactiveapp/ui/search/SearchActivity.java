@@ -7,17 +7,18 @@ import android.support.v7.app.AppCompatActivity;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+import com.mounacheikhna.reactiveapp.BaseActivity;
 import com.mounacheikhna.reactiveapp.R;
 import com.mounacheikhna.reactiveapp.ui.trips.TripsView;
 
 /**
  * Created by cheikhnamouna on 3/28/16.
  */
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends BaseActivity {
 
-  @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.search_activity);
-    ButterKnife.bind(this);
+  @Override
+  protected int getLayoutId() {
+    return R.layout.search_activity;
   }
+
 }
