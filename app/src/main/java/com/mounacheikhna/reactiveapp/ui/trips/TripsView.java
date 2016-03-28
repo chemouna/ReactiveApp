@@ -77,7 +77,10 @@ public class TripsView extends LinearLayout implements TripsScreen {
   }
 
   public void displayDefault() {
-    tripsPresenter.getTrips(getContext()).subscribe(adapter);
+    tripsPresenter.getTrips(getContext())
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(adapter);
   }
 
   public void display(Observable<List<Trip>> tripsObservable) {

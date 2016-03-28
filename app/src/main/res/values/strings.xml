@@ -6,4 +6,7 @@
   <string name="search_rides">Search</string>
   <string name="search">Search</string>
   <string name="post">Post</string>
+  <string name="profile">Profile</string>
+  <string name="departure_hint">Departure</string>
+  <string name="arrival_hint">Arrival</string>
 </resources>

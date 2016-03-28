@@ -23,10 +23,14 @@
       </intent-filter>
     </activity>
 
-    <activity android:name=".ui.Post.PostActivity"/>
-    <activity android:name=".ui.profile.ProfileActivity"/>
+    <activity android:name=".ui.Post.PostActivity"
+        android:label="@string/post"/>
 
-    <activity android:name=".ui.search.SearchActivity"/>
+    <activity android:name=".ui.profile.ProfileActivity"
+        android:label="@string/profile"/>
+
+    <activity android:name=".ui.search.SearchActivity"
+        android:label="@string/search"/>
 
   </application>
 
