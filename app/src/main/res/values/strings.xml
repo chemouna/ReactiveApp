@@ -4,4 +4,6 @@
   <string name="everyday_trip">Everyday</string>
   <string name="women_only">Women Only</string>
   <string name="search_rides">Search</string>
+  <string name="search">Search</string>
+  <string name="post">Post</string>
 </resources>
