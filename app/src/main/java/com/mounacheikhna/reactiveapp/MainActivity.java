@@ -25,14 +25,14 @@ public class MainActivity extends AppCompatActivity {
   @Bind(R.id.trips_view) TripsView tripsView;
   @Bind(R.id.content) RelativeLayout contentContainer;
 
-  @Override protected void onCreate(Bundle savedInstanceState) {
+ @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
-    AccountHeader headerResult = new AccountHeaderBuilder()
+  /*  AccountHeader headerResult = new AccountHeaderBuilder()
         .withActivity(this)
         .withHeaderBackground(R.drawable.header)
         .addProfiles(
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             new DividerDrawerItem(),
             new PrimaryDrawerItem().withName(R.string.post)
         )
-        .build();
+        .build();*/
 
     //TODO: display only when on main screen
     tripsView.displayDefault();

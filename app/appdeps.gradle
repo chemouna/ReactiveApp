@@ -35,7 +35,7 @@ dependencies {
 
   compile 'com.facebook.android:facebook-android-sdk:3.23.1'
 
-  compile 'com.google.android.gms:play-services-auth:8.3.0'
+  //compile 'com.google.android.gms:play-services-auth:8.3.0'
 
   compile 'com.cesarferreira.rxpeople:rxpeople:0.2.3'
 
@@ -44,7 +44,6 @@ dependencies {
   compile 'com.mikepenz:materialdrawer:5.1.6@aar'
 
   compile 'com.github.techery:ProperRatingBar:v0.0.3'
-
 
 }
 
