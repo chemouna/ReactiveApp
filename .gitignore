@@ -16,5 +16,8 @@ google-services.json
 
 *.keystore
 
-./trips.jks
-./signingInfo
+trips.jks
+signingInfo
+
+*/build
+app/build.gradle

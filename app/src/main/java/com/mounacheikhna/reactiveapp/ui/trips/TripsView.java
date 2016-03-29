@@ -3,6 +3,7 @@ package com.mounacheikhna.reactiveapp.ui.trips;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
@@ -36,7 +37,6 @@ public class TripsView extends LinearLayout implements TripsScreen {
   @Inject Picasso picasso;
 
   @Bind(R.id.rv_trips) RecyclerView tripsRv;
-  @BindDimen(R.dimen.spacing_small) int spacingSmall;
 
   private TripAdapter adapter;
 
@@ -72,7 +72,7 @@ public class TripsView extends LinearLayout implements TripsScreen {
 
     tripsRv.setLayoutManager(new LinearLayoutManager(context));
     tripsRv.setClipToPadding(false);
-    tripsRv.addItemDecoration(new OffsetDecoration(spacingSmall));
+    tripsRv.addItemDecoration(new OffsetDecoration(context.getResources().getDimensionPixelSize(R.dimen.spacing_small)));
     adapter = new TripAdapter(picasso);
     tripsRv.setAdapter(adapter);
   }
