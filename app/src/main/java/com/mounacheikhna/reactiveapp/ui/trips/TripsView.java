@@ -36,7 +36,6 @@ public class TripsView extends LinearLayout implements TripsScreen {
   @Inject Picasso picasso;
 
   @Bind(R.id.rv_trips) RecyclerView tripsRv;
-  @BindDimen(R.dimen.spacing_normal) int spacingNormal;
   @BindDimen(R.dimen.spacing_small) int spacingSmall;
 
   private TripAdapter adapter;
