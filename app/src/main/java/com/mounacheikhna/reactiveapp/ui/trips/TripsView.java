@@ -37,6 +37,8 @@ public class TripsView extends LinearLayout implements TripsScreen {
 
   @Bind(R.id.rv_trips) RecyclerView tripsRv;
   @BindDimen(R.dimen.spacing_normal) int spacingNormal;
+  @BindDimen(R.dimen.spacing_small) int spacingSmall;
+
   private TripAdapter adapter;
 
   public TripsView(Context context) {
@@ -71,7 +73,7 @@ public class TripsView extends LinearLayout implements TripsScreen {
 
     tripsRv.setLayoutManager(new LinearLayoutManager(context));
     tripsRv.setClipToPadding(false);
-    tripsRv.addItemDecoration(new OffsetDecoration(spacingNormal));
+    tripsRv.addItemDecoration(new OffsetDecoration(spacingSmall));
     adapter = new TripAdapter(picasso);
     tripsRv.setAdapter(adapter);
   }

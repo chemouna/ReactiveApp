@@ -29,5 +29,10 @@
     <item name="android:textColor">@color/text_secondary_dark</item>
   </style>
 
+  <style name="MyButton" parent="Theme.AppCompat.Light">
+    <item name="colorControlHighlight">@color/accent</item>
+    <item name="colorButtonNormal">@color/accent</item>
+  </style>
+
 
 </resources>

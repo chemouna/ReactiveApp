@@ -32,10 +32,10 @@
 
     <Button
         android:id="@+id/search_rides"
-        style="@style/Widget.AppCompat.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/search_rides" />
+        android:text="@string/search_rides"
+        style="@style/MyButton"/>
 
     <com.mounacheikhna.reactiveapp.ui.trips.TripsView
         android:id="@+id/trips_view"

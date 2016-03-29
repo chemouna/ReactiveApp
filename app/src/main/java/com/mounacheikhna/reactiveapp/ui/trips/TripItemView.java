@@ -19,6 +19,7 @@ public class TripItemView extends LinearLayout {
   @Bind(R.id.trip_from_to) TextView fromToTv;
   @Bind(R.id.trip_dates) TextView datesTv;
   @Bind(R.id.user_image) ImageView userImage;
+  @Bind(R.id.price) TextView priceTv;
 
   public TripItemView(Context context) {
     super(context);
@@ -31,6 +32,7 @@ public class TripItemView extends LinearLayout {
   public void bind(Trip trip, Picasso picasso) {
     fromToTv.setText(trip.departureCity + " -> "+ trip.arrivalCity);
     datesTv.setText(trip.departureDate + " -> "+ trip.arrivalDate);
+    priceTv.setText(trip.price);
     picasso.load(trip.image).into(userImage);
   }
 

@@ -2,12 +2,17 @@ package com.mounacheikhna.reactiveapp.ui.Post;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
 import butterknife.ButterKnife;
 import com.mounacheikhna.reactiveapp.AppComponent;
+import com.mounacheikhna.reactiveapp.R;
 import com.mounacheikhna.reactiveapp.ReactiveApp;
 import com.mounacheikhna.reactiveapp.annotation.ScopeSingleton;
 import com.mounacheikhna.reactiveapp.base.BaseComponent;
+import com.mounacheikhna.reactiveapp.ui.search.DaggerSearchView_SearchComponent;
+
 import javax.inject.Inject;
 import rx.subscriptions.CompositeSubscription;
 
@@ -22,12 +27,12 @@ public class PostView extends LinearLayout implements PostScreen {
 
   public PostView(Context context, AttributeSet attrs) {
     super(context, attrs);
+    init(context);
   }
 
-  @Override
-  protected void onFinishInflate() {
-    super.onFinishInflate();
-    ButterKnife.bind(this);
+  private void init(Context context) {
+    final View view = LayoutInflater.from(context).inflate(R.layout.post, this, true);
+    ButterKnife.bind(this, view);
     DaggerPostView_PostComponent.builder()
             .appComponent(ReactiveApp.get(getContext()).getComponent())
             .build()
