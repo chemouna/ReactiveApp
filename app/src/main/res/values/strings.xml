@@ -9,4 +9,5 @@
   <string name="profile">Profile</string>
   <string name="departure_hint">Departure</string>
   <string name="arrival_hint">Arrival</string>
+  <string name="trip_published">Trips published</string>
 </resources>

@@ -3,6 +3,7 @@ package com.mounacheikhna.reactiveapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -33,10 +34,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
-                //.withHeaderBackground(R.drawable.header)
+                .withHeaderBackground(R.drawable.header)
                 .addProfiles(
                         new ProfileDrawerItem().withName("Leila").withEmail("example@gmail.com")
-                        //.withIcon(ContextCompat.getDrawable(this, R.drawable.women))
+                        .withIcon(ContextCompat.getDrawable(this, R.drawable.women))
                 )
                 .withOnAccountHeaderListener((view, profile, currentProfile) -> false)
                 .build();
